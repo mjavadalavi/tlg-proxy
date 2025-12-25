@@ -43,7 +43,12 @@ A simple PHP-based proxy for the Telegram Bot API. This project allows you to fo
 ## Configuration
 
 -   **Port**: By default, the service runs on port `8080`. You can change this in the `docker-compose.yml` file.
--   **Time Limit**: The script has a default execution time limit of 30 seconds.
+-   **Timeouts** (env):
+    -   `TLPROXY_CONNECT_TIMEOUT` (default: `10`): اتصال اولیه به تلگرام.
+    -   `TLPROXY_TIMEOUT` (default: `60`): زمان کل درخواست به تلگرام.
+    -   `TLPROXY_TIME_LIMIT` (default: `TLPROXY_TIMEOUT + 5`): `set_time_limit` برای PHP.
+    -   `TLPROXY_IPV4_ONLY` (optional): اگر `1` باشد، اتصال فقط با IPv4 انجام می‌شود (برای مشکل‌های IPv6).
+    -   `TLPROXY_DEBUG` (optional): اگر `1` باشد، خطاهای cURL و timingها در پاسخ JSON برگردانده می‌شود.
 
 ## Project Structure
 
